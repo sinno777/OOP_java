@@ -27,9 +27,9 @@ public class temp {
     public static int inputConditions(Scanner scan) {
         int n;
         do {
-            System.out.println("Conditions is n > 0 && n%2 ==0: ");
+            System.out.println("Conditions is n > 0: ");
             n = Integer.parseInt(scan.nextLine());
-        } while (n < 0 || n % 2 != 0);
+        } while (n < 0);
         return n;
     }
 
@@ -94,38 +94,27 @@ public class temp {
     }
 
     public static void quickSort_Cyber(int a[], int left, int right) {
-        int i, j, x;
+        int l, j, x;
         x = a[(left + right) / 2];
-        i = left; // 0
+        l = left; // 0
         j = right; // a.length - 1;
         do {
-            while (a[i] < x)
-                i++;
+            while (a[l] < x)
+                l++;
             while (a[j] > x)
                 j--;
             if (i <= j) {
-                int temp = a[i];
-                a[i] = a[j];
+                int temp = a[l];
+                a[l] = a[j];
                 a[j] = temp;
-                i++;
+                l++;
                 j--;
             }
-        } while (i < j);
+        } while (l < j);
         if (left < j)
             quickSort(a, left, j);
         if (i < right)
-            quickSort(a, i, right);
-    }
-
-    public static int searchMin(int a[]) { // respone first index min
-        int index = -1;
-        for (int i = 0; i < a.length; i++) {
-            if (a[i] < 0) {
-                index = i;
-                break;
-            }
-        }
-        return index;
+            quickSort(a, l, right);
     }
 
     public static void nextSearchIndex(int a[]) {
@@ -211,11 +200,5 @@ public class temp {
         return index;
     }
 
-    public static int[] oddNum(int arr[]) {
-        // int arr[];
-        for (int i : arr) {
-            // arr = i / 10;
-        }
-        return arr;
-    }
+
 }

@@ -4,11 +4,14 @@ import java.util.Arrays;
 public class quickSort {
     public static void main(String[] args) {
         int a[] = { 6, 7, 8, 5, 4, 1, 2, 3 };
-        quickSort_TheBrownBox(a, 0, a.length - 1);
-        System.out.println(Arrays.toString(a));
+        quickSort(a, 0, a.length - 1);
+        // System.out.println(Arrays.toString(a));
+        for (int i : a) {
+            System.out.println(i + "\t");
+        }
     }
 
-    public static void quickSort_TheBrownBox(int a[], int l, int r) {
+    public static void quickSort(int a[], int l, int r) {
         // condition
         if (l > r)
             return;
@@ -18,8 +21,8 @@ public class quickSort {
         // patition flow pivot
         int k = patition(a, l, r, key);
         // call back recursion
-        quickSort_TheBrownBox(a, l, k - 1);
-        quickSort_TheBrownBox(a, k, r);
+        quickSort(a, l, k - 1);
+        quickSort(a, k, r);
     }
 
     // patition flow pivot
